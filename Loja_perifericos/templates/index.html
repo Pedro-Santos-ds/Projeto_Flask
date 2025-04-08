@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Catálogo Completo</h2>
+    
+    <div class="products-grid">
+        {% for produto in produtos %}
+            <div class="product-card">
+                <img src="{{ url_for('static', filename='images/produto' ~ produto.id ~ '.jpg') }}" 
+                     alt="{{ produto.nome }}" class="product-image">
+                <h3>{{ produto.nome }}</h3>
+                <p class="price">R$ {{ "%.2f"|format(produto.preco) }}</p>
+                <div class="product-info">
+                    <p>Categoria: <strong>{{ produto.categoria|upper }}</strong></p>
+                    {% if produto.fabricante %}
+                        <p>Fabricante: {{ produto.fabricante }}</p>
+                    {% endif %}
+                    {% if produto.dpi %}
+                        <p>DPI: {{ produto.dpi }}</p>
+                    {% endif %}
+                    {% if produto.peso %}
+                        <p>Peso: {{ produto.peso }}g</p>
+                    {% endif %}
+                    {% if produto.conexao %}
+                        <p>Conexão: {{ produto.conexao }}</p>
+                    {% endif %}
+                </div>
+                <a href="#" class="btn">Comprar</a>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h2>Cadastro de Detalhes Técnicos</h2>
+    <form method="POST">
+        <div class="form-group">
+            <label>Nome do Produto:</label>
+            <input type="text" name="nome" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Preço:</label>
+            <input type="number" step="0.01" name="preco" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Categoria:</label>
+            <select name="categoria" required>
+                <option value="mouse">Mouse</option>
+                <option value="teclado">Teclado</option>
+                <option value="headset">Headset</option>
+                <option value="microfone">Microfone</option>
+                <option value="mousepad">Mousepad</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Peso (g):</label>
+            <input type="number" name="peso" required>
+        </div>
+        
+        <div class="form-group">
+            <label>Conexão:</label>
+            <select name="conexao" required>
+                <option value="USB">USB</option>
+                <option value="Wireless">Wireless</option>
+                <option value="Bluetooth">Bluetooth</option>
+            </select>
+        </div>
+        
+        <div class="form-group">
+            <label>Botões:</label>
+            <input type="number" name="botoes" min="2" required>
+        </div>
+        
+        <button type="submit" class="btn">Cadastrar</button>
+    </form>
+{% endblock %}
